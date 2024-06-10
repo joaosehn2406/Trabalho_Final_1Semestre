@@ -33,14 +33,12 @@ public class Trabalho {
         Random random = new Random();
 
         while (contadorNavios != 10) {
-            int linha = random.nextInt(9) + 0; // 8
-            int coluna = random.nextInt(9) + 0; // 4
+            int linha = random.nextInt(8); 
+            int coluna = random.nextInt(8); 
 
-            tabuleiro[linha][coluna] = "N"; // tabuleiro
-
-            if (tabuleiro[linha][coluna] != "N") {
+            if (!tabuleiro[linha][coluna].equals("N")) {
+                tabuleiro[linha][coluna] = "N"; // coloca navio
                 contadorNavios++;
-
             }
         }
     }
@@ -49,50 +47,30 @@ public class Trabalho {
         int jogadas = 0; // acaba com 30
         int naviosDestruidos = 0; // acaba com 10
 
-        while (jogadas != 30 || naviosDestruidos != 10) {
+        while (jogadas < 30 && naviosDestruidos < 10) { 
 
             System.out.println("Digite as coordenadas para atacar(linha e coluna):");
             int x = in.nextInt(); // linha
             int y = in.nextInt(); // coluna
 
-            if(x <= 8 && x >= 0 && y <= 8 && y >= 0) {
-                
-            }
-
-            for (int linha = 0; linha < tabuleiro.length; linha++) {
-                for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-
-                    if (tabuleiro[x][y].equals("N")) {
-                        tabuleiroJogador[x][y] = "X";
-                        naviosDestruidos++;
-                    } else {
-                        tabuleiroJogador[x][y] = "O";
-                    }
-                    System.out.print(tabuleiroJogador[linha][coluna] + " ");
-
-                    jogadas++;
+            if(x >= 0 && x < 8 && y >= 0 && y < 8) { 
+                if (tabuleiro[x][y].equals("N")) {
+                    tabuleiroJogador[x][y] = " X ";
+                    naviosDestruidos++;
+                } else {
+                    tabuleiroJogador[x][y] = " O ";
                 }
-                System.out.println();
+                jogadas++;
+                
+                for (int linha = 0; linha < tabuleiro.length; linha++) {
+                    for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+                        System.out.print(tabuleiroJogador[linha][coluna] + " ");
+                    }
+                    System.out.println();
+                }
             }
         }
     }
-
-    public void mostrarResultado(String tabuleiro[][]) {
-
-
-    }
-
-
-    /*
-     * public void imprimirTabuleiro(String matriz[][]){
-     * for(int i = 0; i < matriz.length; i++){
-     * for(int j = 0; j < matriz[i].length; j++){
-     * System.out.print(matriz[i][j] + " ");
-     * }
-     * System.out.println();
-     * }
-     * }
-     */
 
     public static void main(String[] args) {
         new Trabalho();
