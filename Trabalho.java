@@ -47,7 +47,7 @@ public class Trabalho {
         int jogadas = 0; // acaba com 30
         int naviosDestruidos = 0; // acaba com 10
 
-        while (jogadas < 10 && naviosDestruidos < 10) {
+        while (jogadas < 30 && naviosDestruidos < 10) {
 
             System.out.println("Digite as coordenadas para atacar(linha e coluna):");
             int x = in.nextInt(); // linha
