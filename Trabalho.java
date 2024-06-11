@@ -15,6 +15,7 @@ public class Trabalho {
         posicaoNavios(tabuleiro);
         interacaoJogador(tabuleiro, tabuleiroJogador, in);
         fimDoJogo(tabuleiro, tabuleiroJogador, 0, 0);
+
         in.close();
     }
 
@@ -95,7 +96,6 @@ public class Trabalho {
         } else {
             System.out.println("Que pena, você perdeu.");
         }
-
     }
 
     public static void main(String[] args) {
