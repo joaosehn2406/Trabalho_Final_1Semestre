@@ -14,12 +14,12 @@ public class Trabalho {
         inicializacaoTabuleiro(tabuleiro, tabuleiroJogador);
         posicaoNavios(tabuleiro);
         interacaoJogador(tabuleiro, tabuleiroJogador, in);
-        fimDoJogo(null, null, 0, 0);
-
+        fimDoJogo(tabuleiro, tabuleiroJogador, 0, 0);
         in.close();
     }
 
-    public void inicializacaoTabuleiro(String tabuleiro[][], String tabuleiroJogador[][]) { // vai preencher tudo com agua
+    public void inicializacaoTabuleiro(String tabuleiro[][], String tabuleiroJogador[][]) { // vai preencher tudo com
+                                                                                            // agua
         for (int l = 0; l < tabuleiro.length; l++) {
             for (int c = 0; c < tabuleiro[l].length; c++) {
                 tabuleiro[l][c] = "~";
@@ -53,8 +53,8 @@ public class Trabalho {
             int x = in.nextInt(); // linha
             int y = in.nextInt(); // coluna
 
-            if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
-                if(tabuleiroJogador[x][y] == "X" ||tabuleiroJogador[x][y] == "O") {
+            if (x >= 0 && x <= 7 && y >= 0 && y <= 7) {
+                if (tabuleiroJogador[x][y] == "X" || tabuleiroJogador[x][y] == "O") {
                     System.out.println("Esta casa já foi atacada, insira outra.");
                     continue;
                 }
@@ -76,28 +76,27 @@ public class Trabalho {
                     System.out.println();
                 }
             } else {
-                System.out.println("Coordenadas indisponíveis. Insira valores entre 0 e 8.");
+                System.out.println("Coordenadas indisponíveis. Insira valores entre 0 e 7.");
                 continue;
             }
         }
     }
 
-    public void fimDoJogo(int tabuleiro[][], int tabuleiroJogador[][], int naviosDestruidos, int jogadas) {
-        
-        if(naviosDestruidos == 10) {
+    public void fimDoJogo(String tabuleiro[][], String tabuleiroJogador[][], int naviosDestruidos, int jogadas) {
+        for (int linha = 0; linha < tabuleiro.length; linha++) {
+            for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+                System.out.print(tabuleiro[linha][coluna] + " ");
+            }
+            System.out.println();
+        }
+
+        if (naviosDestruidos == 10) {
             System.out.println("Parabéns! Você venceu o jogo.");
         } else {
             System.out.println("Que pena, você perdeu.");
         }
 
-        for(int linha = 0; linha < tabuleiro.length; linha++) {
-            for(int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-                System.out.print(tabuleiro[linha][coluna] + " ");
-            }
-            System.out.println();
-        }
     }
-    
 
     public static void main(String[] args) {
         new Trabalho();
