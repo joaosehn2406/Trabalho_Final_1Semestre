@@ -19,9 +19,7 @@ public class Trabalho {
         in.close();
     }
 
-    public void inicializacaoTabuleiro(String tabuleiro[][], String tabuleiroJogador[][]) { // vai preencher tudo com
-                                                                                            // agua
-
+    public void inicializacaoTabuleiro(String tabuleiro[][], String tabuleiroJogador[][]) { // vai preencher tudo com agua
         for (int l = 0; l < tabuleiro.length; l++) {
             for (int c = 0; c < tabuleiro[l].length; c++) {
                 tabuleiro[l][c] = "~";
@@ -49,13 +47,18 @@ public class Trabalho {
         int jogadas = 0; // acaba com 30
         int naviosDestruidos = 0; // acaba com 10
 
-        while (jogadas < 30 && naviosDestruidos < 10) {
+        while (jogadas < 10 && naviosDestruidos < 10) {
 
             System.out.println("Digite as coordenadas para atacar(linha e coluna):");
             int x = in.nextInt(); // linha
             int y = in.nextInt(); // coluna
 
-            if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+            if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
+                if(tabuleiroJogador[x][y] == "X" ||tabuleiroJogador[x][y] == "O") {
+                    System.out.println("Esta casa já foi atacada, insira outra.");
+                    continue;
+                }
+
                 if (tabuleiro[x][y].equals("N")) {
                     tabuleiroJogador[x][y] = "X";
                     naviosDestruidos++;
@@ -74,10 +77,9 @@ public class Trabalho {
                 }
             } else {
                 System.out.println("Coordenadas indisponíveis. Insira valores entre 0 e 8.");
+                continue;
             }
         }
-
-       
     }
 
     public void fimDoJogo(int tabuleiro[][], int tabuleiroJogador[][], int naviosDestruidos, int jogadas) {
