@@ -62,13 +62,11 @@ public class Trabalho {
             }
 
             if (x >= 0 && x < 8 && y >= 0 && y < 8) {
-                if (tabuleiroJogador[x][y] == "X" || tabuleiroJogador[x][y] == "O") {
+                if (tabuleiroJogador[x][y].equals("X") || tabuleiroJogador[x][y].equals("O")) {
                     System.out.println("Esta casa já foi atacada, insira outra.");
                     continue;
                 } else {
-                    System.out.println("Você acertou!");
                     jogadas++;
-
                     if(tabuleiro[x][y].equals("N")) {
                         tabuleiroJogador[x][y] = "X";
                         naviosDestruidos++;
@@ -77,17 +75,16 @@ public class Trabalho {
                         tabuleiroJogador[x][y] = "O";
                         System.out.println("Você errou!");
                     }
-                }
 
-                for (int linha = 0; linha < tabuleiro.length; linha++) {
-                    for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-                        System.out.print(tabuleiroJogador[linha][coluna] + " ");
+                    for (int linha = 0; linha < tabuleiro.length; linha++) {
+                        for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+                            System.out.print(tabuleiroJogador[linha][coluna] + " ");
+                        }
+                        System.out.println();
                     }
-                    System.out.println();
                 }
             } else {
                 System.out.println("Coordenadas indisponíveis. Insira valores entre 0-7.");
-                continue;
             }
         }
         return naviosDestruidos;
