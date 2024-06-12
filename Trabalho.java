@@ -49,8 +49,17 @@ public class Trabalho {
         while (jogadas < 30 && naviosDestruidos < 10) {
 
             System.out.println("Informe uma linha para o ataque e uma coluna para o ataque");
-            int x = in.nextInt(); // linha
-            int y = in.nextInt(); // coluna
+            int x = 0; // linha
+            int y = 0; // coluna
+
+            try {
+                x = in.nextInt();
+                y = in.nextInt();
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Por favor, insira números inteiros válidos.");
+                in.nextLine(); // limpar o scanner
+                continue;
+            }
 
             if (x >= 0 && x < 8 && y >= 0 && y < 8) {
                 if (tabuleiroJogador[x][y] == "X" || tabuleiroJogador[x][y] == "O") {
