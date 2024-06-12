@@ -62,7 +62,7 @@ public class Trabalho {
                 y = in.nextInt();
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Por favor, insira números inteiros válidos.");
-                in.nextLine(); // Limpar o buffer do scanner
+                in.nextLine(); // Limpar o scanner
                 continue;
             }
 
