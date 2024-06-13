@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Trabalho {
 
-    // Construtor da classe Trabalho
+
     public Trabalho() {
         Scanner in = new Scanner(System.in);
 
@@ -118,7 +118,7 @@ public class Trabalho {
         }
     }
 
-    // Método main para iniciar o jogo
+
     public static void main(String[] args) {
         new Trabalho();
     }
