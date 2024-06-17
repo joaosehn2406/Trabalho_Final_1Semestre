@@ -56,7 +56,7 @@ public class Trabalho {
     // - tabuleiro: matriz representando o tabuleiro real com navios
     // - tabuleiroJogador: matriz representando o tabuleiro que o jogador vê
     // - in: Scanner para ler a entrada do jogador
-    // Funções utilizadas: Scanner para entrada do jogador
+    // Funções utilizadas: Scanner para entrada do jogador; try-catch para verificar a integridade das respostas, não aceitando letras; if-else para verificar se as respostas estão dentro do intervalo estabelecido(limite do tabuleiro) 
     // Retorna: o número de navios destruídos pelo jogador
     public int interacaoJogador(String tabuleiro[][], String tabuleiroJogador[][], Scanner in) {
         int jogadas = 0; 
